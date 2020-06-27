@@ -1,7 +1,7 @@
-package Routes
+package routes
 
 import (
-	"crud-api/Controllers"
+	"crud-api/controllers"
 
 	"github.com/gin-gonic/gin"
 )
@@ -10,11 +10,11 @@ func SetupRouter() *gin.Engine {
 	r := gin.Default()
 	grpl := r.Group("/admin-api")
 	{
-		grpl.GET("admin", Controllers.GetAdmins)
-		grpl.POST("admin", Controllers.CreateAdmin)
-		grpl.GET("admin/:username", Controllers.GetAdminByUsername)
-		grpl.PUT("admin/:username", Controllers.UpdateAdmin)
-		grpl.DELETE("admin/:username", Controllers.DeleteAdmin)
+		grpl.GET("admin", controllers.GetAdmins)
+		grpl.POST("admin", controllers.CreateAdmin)
+		grpl.GET("admin/:username", controllers.GetAdminByUsername)
+		grpl.PUT("admin/:username", controllers.UpdateAdmin)
+		grpl.DELETE("admin/:username", controllers.DeleteAdmin)
 	}
 	return r
 }

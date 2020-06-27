@@ -1,9 +1,9 @@
 //Models/Model.go
 
-package Models
+package models
 
 import (
-	"crud-api/Config"
+	"crud-api/config"
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -11,7 +11,7 @@ import (
 
 //GetAllAdmins Fetch all admin data
 func GetAllAdmins(admin *[]Admin) (err error) {
-	if err = Config.DB.Find(admin).Error; err != nil {
+	if err = config.DB.Find(admin).Error; err != nil {
 		return err
 	}
 	return nil
@@ -19,7 +19,7 @@ func GetAllAdmins(admin *[]Admin) (err error) {
 
 //CreateAdmin ... Insert New data
 func CreateAdmin(admin *Admin) (err error) {
-	if err = Config.DB.Create(admin).Error; err != nil {
+	if err = config.DB.Create(admin).Error; err != nil {
 		return err
 	}
 	return nil
@@ -27,7 +27,7 @@ func CreateAdmin(admin *Admin) (err error) {
 
 //GetAdminByUsername ... Fetch only one admin by Username
 func GetAdminByUsername(admin *Admin, username string) (err error) {
-	if err = Config.DB.Where("username = ?", username).First(admin).Error; err != nil {
+	if err = config.DB.Where("username = ?", username).First(admin).Error; err != nil {
 		return err
 	}
 	return nil
@@ -36,12 +36,12 @@ func GetAdminByUsername(admin *Admin, username string) (err error) {
 //UpdateAdmin ... Update admin
 func UpdateAdmin(admin *Admin, id string) (err error) {
 	fmt.Println(admin)
-	Config.DB.Save(admin)
+	config.DB.Save(admin)
 	return nil
 }
 
 //DeleteAdmin ... Delete admin
 func DeleteAdmin(admin *Admin, username string) (err error) {
-	Config.DB.Where("username = ?", username).Delete(admin)
+	config.DB.Where("username = ?", username).Delete(admin)
 	return nil
 }
