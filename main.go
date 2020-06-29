@@ -20,5 +20,5 @@ func main() {
 	Config.DB.AutoMigrate(&Models.Admin{})
 	r := Routes.SetupRouter()
 	//running
-	r.Run()
+	r.Run(Config.Port)
 }

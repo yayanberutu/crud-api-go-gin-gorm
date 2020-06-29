@@ -34,7 +34,7 @@ func GetAdminByUsername(admin *Admin, username string) (err error) {
 }
 
 //UpdateAdmin ... Update admin
-func UpdateAdmin(admin *Admin, id string) (err error) {
+func UpdateAdmin(admin *Admin, username string) (err error) {
 	fmt.Println(admin)
 	Config.DB.Save(admin)
 	return nil
