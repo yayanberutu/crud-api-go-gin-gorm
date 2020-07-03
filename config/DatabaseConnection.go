@@ -1,4 +1,4 @@
-package Config
+package config
 
 import (
 	"fmt"
@@ -23,7 +23,7 @@ func BuildDBConfig() *DBConfig {
 		3306,
 		"root",
 		"",
-		"uaspam",
+		"del",
 	}
 	return &dbConfig
 }
